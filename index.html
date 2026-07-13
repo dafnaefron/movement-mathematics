@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dafna Efron — When Movement Becomes Mathematical Thinking</title>
+<meta name="description" content="Dafna Efron, PhD Candidate at the Hebrew University of Jerusalem, researches how movement, space and embodied experience shape mathematical thinking through choreography and mathematics education.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper: #F6F9FC;
+    --paper-dim: #EAF1F8;
+    --ink: #12233F;
+    --ink-soft: #48607F;
+    --teal: #1D5C97;
+    --mustard: #3E86C4;
+    --terracotta: #6FB1DE;
+    --taupe: #7A93AC;
+    --red: #D64545;
+    --dot-white: #FFFFFF;
+    --blue: #2E5FA3;
+    --yellow: #E8B93E;
+    --rule: rgba(18,35,63,0.12);
+    --max: 760px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* --- nav --- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6vw;
+    background: rgba(245,242,234,0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .mark{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  nav .avatar{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--rule);
+    display: block;
+  }
+  nav ul{
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+  nav a{
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    transition: color 0.2s ease;
+  }
+  nav a:hover{ color: var(--teal); }
+  @media (max-width: 560px){
+    nav ul{ gap: 16px; }
+    nav a{ font-size: 10px; }
+  }
+
+  /* --- hero --- */
+  .hero{
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 4vw;
+    padding: 9vh 6vw 10vh;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero h1{
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.08;
+    margin: 18px 0 22px;
+  }
+  .hero p.lede{
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+  .hero .institution{
+    margin-top: 26px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .hero .institution span{ color: var(--ink-soft); }
+
+  .quad-wrap{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .quad-wrap svg{ width: 100%; max-width: 420px; height: auto; }
+  .quad-caption{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 30ch;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 780px){
+    .hero{ grid-template-columns: 1fr; padding-top: 6vh; }
+    .quad-wrap{ order: -1; }
+    .quad-wrap svg{ max-width: 220px; }
+  }
+
+  /* --- sections --- */
+  section{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 8vh 6vw;
+    border-top: 1px solid var(--rule);
+  }
+  section h2{
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+  section p{ color: var(--ink-soft); }
+  section p + p{ margin-top: 14px; }
+
+  .pull{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  /* research areas grid */
+  .areas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px 20px;
+    margin-top: 34px;
+  }
+  .areas .area{ text-align: left; }
+  .areas svg{ width: 34px; height: 34px; display: block; margin-bottom: 10px; }
+  .areas .label{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  @media (max-width: 560px){
+    .areas{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* work / publications rows */
+  .split{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 8px;
+  }
+  .split h3{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .item-row{
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 22px;
+  }
+  .item-row .icon{
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--paper-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .item-row .icon svg{ width: 19px; height: 19px; }
+  .item-row .title{
+    font-weight: 600;
+    color: var(--teal);
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+  .item-row .desc{
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .item-row .desc a{ color: var(--ink-soft); text-decoration: underline; text-decoration-color: var(--rule); }
+  @media (max-width: 700px){
+    .split{ grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* research card */
+  .card{
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 18px;
+    min-height: 112px;
+    box-shadow: 0 12px 28px #1D5C9714;
+    background: linear-gradient(#fff,#EEF5FB);
+  }
+  .card h3{ font-size: 18px; line-height: 1.15; margin: 0; color: var(--ink); }
+  .card .eyebrow{ margin-bottom: 10px; }
+  .card h3.title{
+    font-size: 21px;
+    line-height: 1.35;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .card .meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .card .meta span.label{
+    display: block;
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 3px;
+  }
+
+  /* links / contact */
+  .linklist{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .linklist a{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .linklist a:hover{ border-color: var(--teal); color: var(--teal); }
+  .linklist a.primary{ background: var(--teal); color: white !important; border-color: var(--teal); }
+  .linklist a.primary:hover{ opacity: 0.9; }
+
+  footer{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 5vh 6vw 8vh;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .walker{ offset-distance: 0%; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="mark"><img class="avatar" src="profile.png" alt="Portrait of Dafna Efron">Dafna Efron</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div>
+    <span class="eyebrow">PhD Candidate · The Hebrew University of Jerusalem</span>
+    <h1>When movement becomes mathematical thinking</h1>
+    <p class="lede">How teachers learn to see mathematical structure in movement, and how embodied processing lets mathematical thinking emerge.</p>
+    <div class="institution"><span>Contact:</span> dafna.efron@mail.huji.ac.il</div>
+  </div>
+
+  <div class="quad-wrap">
+    <svg viewBox="0 0 200 200" role="img" aria-label="Diagram of four walkers pacing the sides and diagonals of a square in unison, each swerving around the centre without colliding, after Beckett's Quad">
+      <rect x="20" y="20" width="160" height="160" fill="none" stroke="#8C876F" stroke-width="1" stroke-opacity="0.5" />
+      <circle class="walker" id="walker0" r="6.5" fill="var(--red)"></circle>
+      <circle class="walker" id="walker1" r="7" fill="var(--dot-white)" stroke="#B9C4D1" stroke-width="1.5"></circle>
+      <circle class="walker" id="walker2" r="6.5" fill="var(--blue)"></circle>
+      <circle class="walker" id="walker3" r="6.5" fill="var(--yellow)"></circle>
+    </svg>
+    <span class="quad-caption">four walkers, one square — each swerves around the centre without colliding, after Beckett's Quad</span>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <span class="eyebrow">About</span>
+    <h2>Movement as a way of thinking</h2>
+    <p class="pull">A body moving through space is already doing geometry.</p>
+    <p>My doctoral research explores movement- and dance-based learning environments as sites of mathematical work. I study how teachers develop professional vision — the capacity to see mathematical structure in movement, through embodied processing that lets mathematical thinking emerge. Teachers then draw on this acquired vision to design for, and research, their own students' embodied learning.</p>
+
+    <div class="areas">
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4"><circle cx="17" cy="8" r="3"/><path d="M17 11v9M17 14l-6 4M17 14l6 4M17 20l-4 7M17 20l4 7" stroke-linecap="round"/><path d="M27 10c2 3 2 8-1 11" stroke-dasharray="2 3" stroke-linecap="round"/></svg>
+        <div class="label">Embodied<br>Learning</div>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4"><path d="M17 6 27 26H7Z" stroke-linejoin="round"/><circle cx="17" cy="6" r="2.4"/><circle cx="7" cy="26" r="2.4"/><circle cx="27" cy="26" r="2.4"/><path d="M17 8.4V23.6M9 25l6-16M25 25l-6-16" stroke-width="1"/></svg>
+        <div class="label">Mathematics<br>Education</div>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4"><circle cx="14" cy="7" r="3"/><path d="M14 10v7l7 4M14 17l-5 10M14 17l1 10" stroke-linecap="round"/><path d="M23 8c2.5 2 3 6.5 0 9.5" stroke-dasharray="2 3" stroke-linecap="round"/></svg>
+        <div class="label">Movement &amp;<br>Choreography</div>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 18h5l3-9 4 16 3-12 3 5h8"/></svg>
+        <div class="label">Multimodal<br>Learning Analytics</div>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4"><circle cx="17" cy="17" r="11"/><circle cx="17" cy="17" r="6.5" stroke-dasharray="2 3"/><circle cx="17" cy="17" r="1.6" fill="var(--teal)" stroke="none"/></svg>
+        <div class="label">Mathematical<br>Thinking</div>
+      </div>
+      <div class="area">
+        <svg viewBox="0 0 34 34" fill="none" stroke="var(--teal)" stroke-width="1.4" stroke-linejoin="round"><path d="M5 13 17 6l12 7"/><path d="M6 13v13M12 13v13M22 13v13M28 13v13" stroke-linecap="round"/><path d="M4 26h26"/></svg>
+        <div class="label">Museum<br>Learning</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <span class="eyebrow">Research</span>
+    <h2>Upcoming presentation</h2>
+    <p style="margin-bottom:20px; font-style:italic;">This paper reports the first phase of my dissertation — exploratory benchmarking with pre-service teachers.</p>
+    <div class="card">
+      <span class="eyebrow">Conference Presentation</span>
+      <h3 class="title">Discerning Mathematical Ideas in a Choreography: Pre-Service Teachers' Interpretations of Beckett's QUAD</h3>
+      <div class="meta">
+        <div><span class="label">Date</span>Friday, 31 August 2026</div>
+        <div><span class="label">Time</span>4:00 PM</div>
+        <div><span class="label">Venue</span>University of Helsinki</div>
+        <div><span class="label">Room</span>F3006</div>
+        <div><span class="label">Conference</span>PME 49</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <span class="eyebrow">Now</span>
+    <h2>Current work</h2>
+    <div class="split">
+      <div>
+        <div class="item-row">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8" r="2.6"/><circle cx="16" cy="9" r="2"/><path d="M4 19c.5-3 2.3-5 5-5s4.5 2 5 5M14.5 19c.3-2.2 1.6-3.7 3.7-3.9"/></svg></div>
+          <div>
+            <div class="title">Participatory Design-Based Research</div>
+            <div class="desc">Studying how teachers' professional vision for embodied mathematics develops across iterative cycles of design, classroom enactment, and analysis.</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="1.2"/><path d="M8 9h8M8 12.5h8M8 16h5"/></svg></div>
+          <div>
+            <div class="title">Structured Movement Systems</div>
+            <div class="desc">Using frameworks like Eshkol-Wachman Movement Notation to make mathematical structure in movement legible and shareable.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Publications &amp; Profiles</h3>
+        <div class="item-row">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linejoin="round"><path d="M12 5 3 9l9 4 9-4-9-4Z"/><path d="M7 11v5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5v-5"/></svg></div>
+          <div>
+            <div class="title">Google Scholar</div>
+            <div class="desc"><a href="https://scholar.google.co.il/citations?user=U8_FKvIAAAAJ&hl=en&oi=sra" target="_blank" rel="noopener">scholar.google.co.il profile</a></div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><text x="12" y="15.5" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--teal)" stroke="none" text-anchor="middle">iD</text></svg></div>
+          <div>
+            <div class="title">ORCID</div>
+            <div class="desc"><a href="https://orcid.org/0009-0009-3428-2206" target="_blank" rel="noopener">0009-0009-3428-2206</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span class="eyebrow">Connect</span>
+    <h2>Continue the conversation</h2>
+    <div class="linklist">
+      <a class="primary" href="mailto:dafna.efron@mail.huji.ac.il">Email</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Dafna Efron</span>
+  <span>The Hebrew University of Jerusalem</span>
+</footer>
+
+<script>
+(function(){
+  var walkers = [0,1,2,3].map(function(i){ return document.getElementById('walker'+i); });
+
+  var C = [100,100], R = 26;
+  var TL=[20,20], TR=[180,20], BL=[20,180], BR=[180,180];
+  // Ea/Eb sit exactly on the radius-26 circle around the centre, so the swerve
+  // (an arc of that circle) never comes closer to the centre than R, at any
+  // point in the animation — verified numerically, not just by eye.
+  var Ea1=[118.4,81.6], Eb1=[81.6,118.4], Ea2=[118.4,118.4], Eb2=[81.6,81.6];
+
+  function rotate90(pt){ return [pt[1], 200 - pt[0]]; }
+  function rot(pt, k){ var o = pt; for (var n = 0; n < k; n++) o = rotate90(o); return o; }
+
+  function pathFor(k){
+    var tl=rot(TL,k), tr=rot(TR,k), bl=rot(BL,k), br=rot(BR,k);
+    var ea1=rot(Ea1,k), eb1=rot(Eb1,k), ea2=rot(Ea2,k), eb2=rot(Eb2,k);
+    return 'M'+tl+' L'+tr+' L'+ea1+
+           ' A'+R+' '+R+' 0 0 1 '+eb1[0]+' '+eb1[1]+
+           ' L'+bl+' L'+br+' L'+ea2+
+           ' A'+R+' '+R+' 0 0 1 '+eb2[0]+' '+eb2[1]+
+           ' L'+tl+' Z';
+  }
+
+  if (!CSS.supports('offset-distance', '0%')) return;
+
+  walkers.forEach(function(w, i){
+    w.style.offsetPath = "path('" + pathFor(i) + "')";
+  });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    walkers.forEach(function(w){ w.style.offsetDistance = '0%'; });
+    return;
+  }
+
+  var CYCLE_MS = 7000;
+  function frame(t){
+    var pct = ((t % CYCLE_MS) / CYCLE_MS) * 100;
+    var str = pct + '%';
+    for (var i = 0; i < walkers.length; i++) walkers[i].style.offsetDistance = str;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
